@@ -1,6 +1,4 @@
-// C++ program to implement Tree Sort
 #include<bits/stdc++.h>
-
 using namespace std;
 
 struct Node
@@ -9,7 +7,6 @@ struct Node
 	struct Node *left, *right;
 };
 
-// A utility function to create a new BST Node
 struct Node *newNode(int item)
 {
 	struct Node *temp = new Node;
@@ -18,8 +15,6 @@ struct Node *newNode(int item)
 	return temp;
 }
 
-// Stores inorder traversal of the BST
-// in arr[]
 void storeSorted(Node *root, int arr[], int &i)
 {
 	if (root != NULL)
@@ -30,24 +25,19 @@ void storeSorted(Node *root, int arr[], int &i)
 	}
 }
 
-/* A utility function to insert a new
-Node with given key in BST */
+
 Node* insert(Node* node, int key)
 {
-	/* If the tree is empty, return a new Node */
 	if (node == NULL) return newNode(key);
 
-	/* Otherwise, recur down the tree */
 	if (key < node->key)
 		node->left = insert(node->left, key);
 	else if (key > node->key)
 		node->right = insert(node->right, key);
 
-	/* return the (unchanged) Node pointer */
 	return node;
 }
 
-// This function sorts arr[0..n-1] using Tree Sort
 void treeSort(int arr[], int n)
 {
 	struct Node *root = NULL;
